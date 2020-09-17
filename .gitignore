@@ -1,0 +1,9 @@
+
+*.bin
+*.bin
+.idea/.name
+*.iml
+.idea/workspace.xml
+local.properties
+.idea/modules/app/app.iml
+.idea/caches/build_file_checksums.ser
