@@ -7,8 +7,8 @@
     android:layout_height="match_parent"
     android:layout_alignParentEnd="false"
     android:layout_alignParentBottom="true"
-    android:background="#FFFFFF"
-    tools:context=".LoginActivity">
+    android:background="#000000"
+    tools:context=".loginActivity">
 
     <LinearLayout
         android:layout_width="409dp"
@@ -21,14 +21,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/movieList2"
             android:layout_width="100dp"
             android:layout_height="103dp"
             android:layout_gravity="center"
             android:layout_margin="50dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="8dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
@@ -52,7 +52,7 @@
             android:layout_height="80dp">
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/inEmail"
                 style="@style/Base.Widget.MaterialComponents.TextInputEditText"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
@@ -83,7 +83,7 @@
             android:layout_height="80dp">
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/inPass"
                 style="@style/Base.Widget.MaterialComponents.TextInputEditText"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
@@ -103,7 +103,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/bnt_signup"
+                android:id="@+id/btnSgnup"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="55dp"
@@ -112,11 +112,16 @@
                 android:textColor="#000000" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnLogin"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="59dp"
                 android:background="#FF0000"
+                android:clickable="true"
+                android:focusable="auto"
+                android:linksClickable="true"
+                android:onClick="verificaDados"
                 android:text="login"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
@@ -130,7 +135,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_logfb"
+                android:id="@+id/btnLogFb"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -146,7 +151,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_logingoogle"
+                android:id="@+id/btnLoginGoogle"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
