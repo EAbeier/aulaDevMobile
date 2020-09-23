@@ -19,6 +19,9 @@
         <activity android:name=".loginActivity">
 
         </activity>
+        <activity android:name=".catalogoFilmes">
+
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
