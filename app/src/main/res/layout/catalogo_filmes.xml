@@ -92,7 +92,7 @@
 
             <ImageView
                 android:id="@+id/movieList"
-                android:layout_width="434dp"
+                android:layout_width="match_parent"
                 android:layout_height="184dp"
                 android:contentDescription="TODO"
                 app:srcCompat="@drawable/image"
@@ -113,7 +113,7 @@
 
             <ImageView
                 android:id="@+id/movieList2"
-                android:layout_width="412dp"
+                android:layout_width="match_parent"
                 android:layout_height="182dp"
                 android:contentDescription="TODO"
                 app:srcCompat="@drawable/image__1_" />
@@ -132,7 +132,7 @@
 
             <ImageView
                 android:id="@+id/movieList3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/image__2_" />
 

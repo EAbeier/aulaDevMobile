@@ -36,4 +36,8 @@ public class loginActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
     }
+
+    public void cadastra(View view){
+        startActivity(new Intent(getBaseContext(),SignInActivity.class));
+    }
 }
