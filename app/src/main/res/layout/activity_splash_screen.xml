@@ -5,8 +5,8 @@
     android:id="@+id/splashBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    tools:context=".splashScreen">
+    android:background="#393636"
+    tools:context=".ui.SplashScreen">
 
     <LinearLayout
         android:layout_width="410dp"
