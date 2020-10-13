@@ -1,4 +1,4 @@
-package com.example.meuapp;
+package com.example.meuapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-public class splashScreen extends AppCompatActivity {
+import com.example.meuapp.R;
+
+public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,7 @@ public class splashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run(){
-                startActivity(new Intent(getBaseContext(), loginActivity.class));
+                startActivity(new Intent(getBaseContext(), LoginActivity.class));
                 finish();
             }
         },5000);

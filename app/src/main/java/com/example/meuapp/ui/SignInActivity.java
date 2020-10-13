@@ -1,9 +1,11 @@
-package com.example.meuapp;
+package com.example.meuapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.WindowManager;
+
+import com.example.meuapp.R;
 
 public class SignInActivity extends AppCompatActivity {
 
