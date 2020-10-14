@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.example.meuapp.R;
@@ -30,6 +32,10 @@ protected void onCreate(Bundle savedInstanceState) {
         rv3.setAdapter(new ListaFilmesAdapter());
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+
+        public void retorna(View view){
+                startActivity(new Intent(getBaseContext(),ListaFilmesActivity.class));
         }
 
     /*public void botaoClick(View view){
