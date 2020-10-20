@@ -1,5 +1,6 @@
 package com.example.meuapp.ui;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,35 +10,45 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meuapp.R;
+import com.example.meuapp.data.model.Filme;
+import com.example.meuapp.databinding.ItemFilmeBinding;
 
-public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.ListaFilmesViewHolder> {
+import java.util.List;
+
+public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.FilmeViewHolder>{
+    private List<Filme> filmeList;
+    public ListaFilmesAdapter(List<Filme> filmeList){
+        this.filmeList = filmeList;
+    }
     @NonNull
     @Override
-    public ListaFilmesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_filme, parent, false);
-
-        return new ListaFilmesViewHolder(view);
+    public FilmeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        ItemFilmeBinding itemBinding = ItemFilmeBinding.inflate(layoutInflater, parent, false);
+        return new FilmeViewHolder(itemBinding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListaFilmesViewHolder holder, int position) {
-        holder.txtTituloFilme.setText("filme exemplo");
+    public void onBindViewHolder(@NonNull FilmeViewHolder holder, int position) {
+        Filme filme = filmeList.get(position);
+        holder.bind(filme);
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return filmeList != null ? filmeList.size():0;
     }
 
-    static class ListaFilmesViewHolder extends RecyclerView.ViewHolder{
+    class FilmeViewHolder extends RecyclerView.ViewHolder{
+        private ItemFilmeBinding binding;
 
-       private TextView txtTituloFilme;
-
-        public ListaFilmesViewHolder(@NonNull View itemView) {
-            super(itemView);
-            txtTituloFilme = itemView.findViewById(R.id.txt_Titulo_Filme);
-
-            txtTituloFilme.setText("exemplo");
+        public FilmeViewHolder(ItemFilmeBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+        public void bind(Filme filme){
+            binding.setTela(filme);
+            binding.executePendingBindings();
         }
     }
 }

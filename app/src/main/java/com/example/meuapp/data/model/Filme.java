@@ -1,6 +1,9 @@
 package com.example.meuapp.data.model;
 
-public class Filme {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Filme implements Parcelable {
     private String titulo;
     private String descricao;
 
@@ -23,4 +26,13 @@ public class Filme {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
+    }
 }

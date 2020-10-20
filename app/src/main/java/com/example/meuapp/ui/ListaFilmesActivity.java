@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.meuapp.R;
 
@@ -19,7 +21,6 @@ protected void onCreate(Bundle savedInstanceState) {
         RecyclerView rv2 = findViewById(R.id.rv_recomenda);
         RecyclerView rv3 = findViewById(R.id.rv_romance);
         RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(this);
-
         rv1.setLayoutManager(linearLayoutManager);
         rv2.setLayoutManager(linearLayoutManager);
         rv3.setLayoutManager(linearLayoutManager);
