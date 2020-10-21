@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         String passCompara = "12345";
         if ((email.getText().toString().equals(emailCompara))
                 &&((pass.getText().toString().equals(passCompara)))){
-            startActivity(new Intent(getBaseContext(), ListaFilmesActivity.class));
+            startActivity(new Intent(getBaseContext(), perfilActivity.class));
             finish();
         }else{
             Toast.makeText(
