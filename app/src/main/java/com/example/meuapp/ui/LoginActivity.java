@@ -1,4 +1,4 @@
-package com.example.meuapp;
+package com.example.meuapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,9 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class loginActivity extends AppCompatActivity {
+import com.example.meuapp.R;
+
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +30,11 @@ public class loginActivity extends AppCompatActivity {
         String passCompara = "12345";
         if ((email.getText().toString().equals(emailCompara))
                 &&((pass.getText().toString().equals(passCompara)))){
-            startActivity(new Intent(getBaseContext(),catalogoFilmes.class));
+            startActivity(new Intent(getBaseContext(), ListaFilmesActivity.class));
             finish();
         }else{
             Toast.makeText(
-                    loginActivity.this, "usuario ou senha incorreta",
+                    LoginActivity.this, "usuario ou senha incorreta",
                     Toast.LENGTH_LONG).show();
         }
     }
