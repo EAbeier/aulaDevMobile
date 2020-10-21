@@ -15,8 +15,8 @@
     <LinearLayout
 
         android:id="@+id/layout_linear"
-        android:layout_width="412dp"
-        android:layout_height="733dp"
+        android:layout_width="397dp"
+        android:layout_height="786dp"
         android:background="#393636"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,10 +36,9 @@
                 android:id="@+id/btnMenu"
                 android:layout_width="40dp"
                 android:layout_height="43dp"
-                android:layout_gravity="right"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:background="@android:drawable/ic_menu_sort_by_size"
                 android:paddingTop="15dp"
                 android:textColor="#CFCFCF" />
@@ -48,8 +47,8 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="90dp"
                 android:text="UNIFLIX"
                 android:textColor="#FF0000"
                 android:textColorHighlight="#000000"
@@ -62,10 +61,8 @@
                 android:id="@+id/btnSearch"
                 android:layout_width="51dp"
                 android:layout_height="47dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="15dp"
-                android:gravity="left"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="90dp"
                 android:paddingTop="10dp"
                 android:visibility="visible"
                 tools:visibility="visible">
@@ -81,9 +78,10 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/titulo_drama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="Dramas:"
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#000000"
@@ -95,11 +93,14 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_drama"
                 android:layout_width="match_parent"
-                android:layout_height="60dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
 
             <TextView
+                android:id="@+id/titulo_recomendados"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="Recomendados:"
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#000000"
@@ -113,12 +114,14 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_recomenda"
                 android:layout_width="match_parent"
-                android:layout_height="68dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/titulo_romances"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="Romances:"
                 android:textColor="#FFFFFF"
                 android:textColorHighlight="#000000"
@@ -130,7 +133,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_romance"
                 android:layout_width="410dp"
-                android:layout_height="68dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
 
         </LinearLayout>
     </LinearLayout>

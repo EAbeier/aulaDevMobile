@@ -30,9 +30,9 @@ protected void onCreate(Bundle savedInstanceState) {
         RecyclerView rv1 = findViewById(R.id.rv_drama);
         RecyclerView rv2 = findViewById(R.id.rv_recomenda);
         RecyclerView rv3 = findViewById(R.id.rv_romance);
-        RecyclerView.LayoutManager linearLayoutManager1 = new LinearLayoutManager(this);
-        RecyclerView.LayoutManager linearLayoutManager2 = new LinearLayoutManager(this);
-        RecyclerView.LayoutManager linearLayoutManager3 = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager linearLayoutManager1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
+        RecyclerView.LayoutManager linearLayoutManager2 = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        RecyclerView.LayoutManager linearLayoutManager3 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
         rv1.setLayoutManager(linearLayoutManager1);
         rv2.setLayoutManager(linearLayoutManager2);
         rv3.setLayoutManager(linearLayoutManager3);
