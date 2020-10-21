@@ -39,7 +39,7 @@ public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.
         return filmeList != null ? filmeList.size():0;
     }
 
-    class FilmeViewHolder extends RecyclerView.ViewHolder{
+    static class FilmeViewHolder extends RecyclerView.ViewHolder{
         private ItemFilmeBinding binding;
 
         public FilmeViewHolder(ItemFilmeBinding binding) {

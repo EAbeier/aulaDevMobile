@@ -8,9 +8,6 @@
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="732dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +59,6 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/account_circle_white_18dp"
                 android:gravity="left"
-                android:layout="prof"
                 android:paddingTop="10dp"
                 android:visibility="visible"
                 tools:visibility="visible">

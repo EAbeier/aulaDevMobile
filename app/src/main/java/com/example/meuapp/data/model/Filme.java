@@ -12,6 +12,23 @@ public class Filme implements Parcelable {
         this.descricao = descricao;
     }
 
+    protected Filme(Parcel in) {
+        titulo = in.readString();
+        descricao = in.readString();
+    }
+
+    public static final Creator<Filme> CREATOR = new Creator<Filme>() {
+        @Override
+        public Filme createFromParcel(Parcel in) {
+            return new Filme(in);
+        }
+
+        @Override
+        public Filme[] newArray(int size) {
+            return new Filme[size];
+        }
+    };
+
     public String getTitulo(){
         return titulo;
     }
@@ -33,6 +50,7 @@ public class Filme implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-
+        parcel.writeString(titulo);
+        parcel.writeString(descricao);
     }
 }
