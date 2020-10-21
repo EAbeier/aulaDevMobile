@@ -7,6 +7,13 @@
 
     <LinearLayout
         android:layout_width="409dp"
+
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:background="#000000"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
         android:layout_height="732dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +39,9 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/abc_vector_test"
+
                 android:onClick="retorna"
+
                 android:paddingTop="15dp"
                 android:textColor="#CFCFCF" />
 
@@ -115,3 +124,5 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
