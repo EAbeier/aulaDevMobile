@@ -28,6 +28,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
@@ -55,19 +57,19 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient( this,gso);
-        signInButton.setOnClickListener(new View.OnClickListener(){
+
+        signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 signIn();
             }
         });
 
-        btnSignOut.setOnClickListener(new View.OnClickListener(){
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 mGoogleSignInClient.signOut();
-
-                Toast.makeText(LoginActivity.this,"You are Logger Out", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this,"You are Logged Out",Toast.LENGTH_SHORT).show();
                 btnSignOut.setVisibility(View.INVISIBLE);
             }
         });
@@ -88,21 +90,19 @@ public class LoginActivity extends AppCompatActivity {
         handleSignInResult(task);
     }
     }
-
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
+    private void handleSignInResult(@NotNull Task<GoogleSignInAccount> completedTask){
         try{
-
             GoogleSignInAccount acc = completedTask.getResult(ApiException.class);
             Toast.makeText(LoginActivity.this,"Signed in Successfully", Toast.LENGTH_SHORT).show();
             FirebaseGoogleAuth(acc);
         }
         catch (ApiException e){
            Toast.makeText(LoginActivity.this,"Sign in Failed" + e.getStatusCode(), Toast.LENGTH_SHORT).show();
-            //FirebaseGoogleAuth(null);
+            FirebaseGoogleAuth(null);
         }
     }
 
-    private void FirebaseGoogleAuth(GoogleSignInAccount acct){
+    private void FirebaseGoogleAuth(@NotNull GoogleSignInAccount acct){
         AuthCredential authCredential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(authCredential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -114,8 +114,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(LoginActivity.this,"Sign in Failed", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(LoginActivity.this, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show();
                     updateUI(null);
                 }
             }
@@ -134,7 +132,8 @@ public class LoginActivity extends AppCompatActivity {
             String personId = account.getId();
             Uri personPhoto = account.getPhotoUrl();
 
-            Toast.makeText(LoginActivity.this, personName + personEmail , Toast.LENGTH_SHORT).show();
+          //  startActivity(new Intent(getBaseContext(), perfilActivity.class));
+           // finish();
         }
     }
 
