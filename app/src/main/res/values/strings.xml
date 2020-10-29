@@ -12,4 +12,5 @@
     <string name="button_cadastrar">CADASTRAR</string>
     <string name="button_face">Log in With Facebook</string>
     <string name="button_google">Log in With Google</string>
+    <string name="posterfilme">posterfilme</string>
 </resources>
