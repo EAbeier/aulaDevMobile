@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="403dp"
-        android:layout_height="851dp"
+        android:layout_height="800dp"
         android:background="#393636"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,7 +18,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:orientation="vertical">
 
@@ -38,15 +38,15 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="149dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/movieList3"
-                    android:layout_width="114dp"
+                    android:layout_width="153dp"
                     android:layout_height="103dp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
                     android:layout_weight="1"
                     android:contentDescription="perifil_svg"
@@ -70,6 +70,36 @@
                     tools:srcCompat="@tools:sample/avatars[1]" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="selecionaPerfil"
+                    android:text="@string/nomePerfil"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#FF0000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="selecionaPerfil"
+                    android:text="@string/nomePerfil2"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#FF0000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -79,10 +109,10 @@
 
             <ImageView
                 android:id="@+id/movieList2"
-                android:layout_width="164dp"
+                android:layout_width="196dp"
                 android:layout_height="103dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:contentDescription="perifil_svg"
                 android:onClick="selecionaPerfil"
@@ -101,8 +131,79 @@
                 android:onClick="selecionaPerfil"
                 app:srcCompat="@drawable/account_circle_white_18dp"
                 tools:ignore="VectorDrawableCompat"
-                tools:srcCompat="@tools:sample/avatars[11]" />
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:text="@string/nomePerfil"
+            android:textAlignment="center"
+            android:textColor="#FF0000"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="selecionaPerfil"
+                android:text="@string/nomePerfil3"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FF0000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="selecionaPerfil"
+                android:text="@string/nomePerfil4"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FF0000"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="196dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="150dp"
+                    app:srcCompat="@android:drawable/ic_menu_add" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="196dp"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="150dp"
+                    app:srcCompat="@android:drawable/ic_menu_manage" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
