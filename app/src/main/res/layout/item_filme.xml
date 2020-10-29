@@ -16,11 +16,16 @@
 
 
         <ImageView
-            android:id="@+id/img_image_filme"
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/posterfilme"
-            tools:srcCompat="@{tela.caminhoPoster}" />
+            android:layout_height="wrap_content"
+            android:text="@{tela.caminhoPoster}"/>
 
         <TextView
             android:id="@+id/txt_titulo_filme"
