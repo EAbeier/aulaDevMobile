@@ -1,25 +1,25 @@
 package com.example.meuapp.ui;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingComponent;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.meuapp.R;
 import com.example.meuapp.data.model.Filme;
 import com.example.meuapp.databinding.ItemFilmeBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.FilmeViewHolder>{
-    private List<Filme> filmeList;
-    public ListaFilmesAdapter(List<Filme> filmeList){
-        this.filmeList = filmeList;
+    private List<Filme> filmes;
+
+    public ListaFilmesAdapter() {
+        this.filmes = new ArrayList<>();
     }
+
     @NonNull
     @Override
     public FilmeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -30,17 +30,17 @@ public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull FilmeViewHolder holder, int position) {
-        Filme filme = filmeList.get(position);
+        Filme filme = filmes.get(position);
         holder.bind(filme);
     }
 
     @Override
     public int getItemCount() {
-        return filmeList != null ? filmeList.size():0;
+        return filmes != null ? filmes.size():0;
     }
 
-    static class FilmeViewHolder extends RecyclerView.ViewHolder{
-        private ItemFilmeBinding binding;
+    public static class FilmeViewHolder extends RecyclerView.ViewHolder{
+        private final ItemFilmeBinding binding;
 
         public FilmeViewHolder(ItemFilmeBinding binding) {
             super(binding.getRoot());
@@ -50,5 +50,10 @@ public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.
             binding.setTela(filme);
             binding.executePendingBindings();
         }
+    }
+
+    public void setFilmes(List<Filme> filmes){
+        this.filmes = filmes;
+        notifyDataSetChanged();
     }
 }
