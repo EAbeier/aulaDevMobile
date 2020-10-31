@@ -1,7 +1,5 @@
 package com.example.meuapp.data.connection;
 
-import com.example.meuapp.data.connection.FilmesSevices;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 

@@ -16,6 +16,8 @@ import com.example.meuapp.data.connection.response.FilmesResult;
 import com.example.meuapp.data.mapper.FilmeMapper;
 import com.example.meuapp.data.model.Filme;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,20 +27,18 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ListaFilmesActivity extends AppCompatActivity {
-        private RecyclerView rv1;
-        private RecyclerView rv2;
-        private RecyclerView rv3;
-        private ListaFilmesAdapter FilmeAdapter = new ListaFilmesAdapter();
+    private ListaFilmesAdapter FilmeAdapter = new ListaFilmesAdapter();
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_filmes);
-
         configuraAdapter();
-
         obtemFilmes();
+
+
+
 
 
 
@@ -61,26 +61,25 @@ protected void onCreate(Bundle savedInstanceState) {
         Intent intent = new Intent( createPackageContext: this, activity_lista_filmes.class);
     }*/
         public void configuraAdapter(){
-                rv1 = findViewById(R.id.rv_drama);
-                rv2 = findViewById(R.id.rv_recomenda);
-                rv3 = findViewById(R.id.rv_romance);
-                FilmeAdapter = new ListaFilmesAdapter();
+            RecyclerView rv1 = findViewById(R.id.rv_drama);
+            RecyclerView rv2 = findViewById(R.id.rv_recomenda);
+            RecyclerView rv3 = findViewById(R.id.rv_romance);
                 RecyclerView.LayoutManager linearLayoutManager1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
                 RecyclerView.LayoutManager linearLayoutManager2 = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
                 RecyclerView.LayoutManager linearLayoutManager3 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
                 rv1.setLayoutManager(linearLayoutManager1);
                 rv2.setLayoutManager(linearLayoutManager2);
                 rv3.setLayoutManager(linearLayoutManager3);
-                rv1.setAdapter(FilmeAdapter);
-                rv2.setAdapter(FilmeAdapter);
-                rv3.setAdapter(FilmeAdapter);
+                rv1.setAdapter(new ListaFilmesAdapter());
+                rv2.setAdapter(new ListaFilmesAdapter());
+                rv3.setAdapter(new ListaFilmesAdapter());
         }
         private void obtemFilmes(){
                 ApiService.getInstance()
                         .FilmesPoulares("799a1f0649735842ab24e00e80ad2b30")
                         .enqueue(new Callback<FilmesResult>() {
                                 @Override
-                                public void onResponse(Call<FilmesResult> call, Response<FilmesResult> response) {
+                                public void onResponse(@NotNull Call<FilmesResult> call, @NotNull Response<FilmesResult> response) {
                                         if(response.isSuccessful()){
                                                 final List<Filme> listaFilmes = FilmeMapper
                                                         .responseToDomain(response.body().getResultados());
@@ -93,7 +92,7 @@ protected void onCreate(Bundle savedInstanceState) {
                                 }
 
                                 @Override
-                                public void onFailure(Call<FilmesResult> call, Throwable t) {
+                                public void onFailure(@NotNull Call<FilmesResult> call, Throwable t) {
                                         mostraErro();
                                 }
                         });
