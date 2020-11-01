@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:text="@string/textview_email"
-                android:textColor="#FF0000"
+                android:textColor="@color/titulo_color"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:text="@string/textview_senha"
-                android:textColor="#FF0000"
+                android:textColor="@color/titulo_color"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 tools:text="Senha" />

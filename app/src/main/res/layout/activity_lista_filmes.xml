@@ -54,7 +54,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="90dp"
                     android:text="UNIFLIX"
-                    android:textColor="#FF0000"
+                    android:textColor="@color/titulo_color"
                     android:textColorHighlight="#000000"
                     android:textColorHint="#000000"
                     android:textColorLink="#000000"
@@ -118,7 +118,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_recomenda"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="10dp" />
 
                 <TextView
@@ -136,8 +136,8 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_romance"
-                    android:layout_width="410dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="10dp" />
 
             </LinearLayout>

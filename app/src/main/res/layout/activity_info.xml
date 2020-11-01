@@ -54,11 +54,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"
                 android:gravity="center_horizontal"
-                android:text="UNIFLIX"
-                android:textColor="#FF0000"
+                android:text="@string/nomeApp"
+                android:textAllCaps="false"
+                android:textColor="@color/titulo_color"
                 android:textColorHighlight="#000000"
-                android:textColorHint="#000000"
-                android:textColorLink="#000000"
+                android:textColorHint="#ffffff"
+                android:textColorLink="#FFFFFF"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 

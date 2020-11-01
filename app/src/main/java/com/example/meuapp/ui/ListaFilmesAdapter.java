@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meuapp.R;
 import com.example.meuapp.data.model.Filme;
-import com.example.meuapp.databinding.ItemFilmeBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.
         }
         public void bind(Filme filme){
             txtTituloFilme.setText(filme.getTitulo());
-            Picasso.get().load("https://image.tmdb.org/t/p/w342/"+filme.getCaminhoPoster())
+            Picasso.get().load("https://image.tmdb.org/t/p/w500/"+filme.getCaminhoPoster())
                     .into(this.imagePoster);
         }
     }
