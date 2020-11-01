@@ -34,7 +34,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_filmes);
-        configuraAdapter();
+
         obtemFilmes();
 
 
@@ -70,9 +70,9 @@ protected void onCreate(Bundle savedInstanceState) {
                 rv1.setLayoutManager(linearLayoutManager1);
                 rv2.setLayoutManager(linearLayoutManager2);
                 rv3.setLayoutManager(linearLayoutManager3);
-                rv1.setAdapter(new ListaFilmesAdapter());
-                rv2.setAdapter(new ListaFilmesAdapter());
-                rv3.setAdapter(new ListaFilmesAdapter());
+                rv1.setAdapter(FilmeAdapter);
+                rv2.setAdapter(FilmeAdapter);
+                rv3.setAdapter(FilmeAdapter);
         }
         private void obtemFilmes(){
                 ApiService.getInstance()
@@ -85,6 +85,7 @@ protected void onCreate(Bundle savedInstanceState) {
                                                         .responseToDomain(response.body().getResultados());
 
                                                 FilmeAdapter.setFilmes(listaFilmes);
+                                                configuraAdapter();
                                         }
                                         else{
                                                 mostraErro();
