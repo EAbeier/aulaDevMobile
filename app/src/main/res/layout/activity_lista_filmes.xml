@@ -92,7 +92,8 @@
                     android:textColorHint="#000000"
                     android:textColorLink="#000000"
                     android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:visibility="visible" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_drama"
@@ -113,7 +114,8 @@
                     android:textSize="24sp"
                     android:textStyle="bold"
                     tools:layout_conversion_absoluteHeight="19dp"
-                    tools:layout_conversion_absoluteWidth="409dp" />
+                    tools:layout_conversion_absoluteWidth="409dp"
+                    tools:visibility="visible" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_recomenda"
@@ -132,7 +134,8 @@
                     android:textColorHint="#000000"
                     android:textColorLink="#000000"
                     android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:visibility="visible" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_romance"

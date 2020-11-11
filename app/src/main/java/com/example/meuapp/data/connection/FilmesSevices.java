@@ -9,5 +9,5 @@ import retrofit2.http.Query;
 
 public interface FilmesSevices {
     @GET("movie/popular")
-    Call<FilmesResult> FilmesPoulares(@Query("api_key") String chaveApi);
+    Call<FilmesResult> FilmesPoulares(@Query("api_key") String chaveApi, @Query("language") String linguagem);
 }

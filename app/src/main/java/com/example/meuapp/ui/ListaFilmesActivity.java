@@ -1,6 +1,7 @@
 package com.example.meuapp.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,12 +29,16 @@ import retrofit2.Response;
 
 public class ListaFilmesActivity extends AppCompatActivity {
     private ListaFilmesAdapter FilmeAdapter = new ListaFilmesAdapter();
+    private ListaFilmesAdapter FilmeAdapter1 = new ListaFilmesAdapter();
+    private ListaFilmesAdapter FilmeAdapter2 = new ListaFilmesAdapter();
+
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_filmes);
+
 
         obtemFilmes();
 
@@ -71,20 +76,22 @@ protected void onCreate(Bundle savedInstanceState) {
                 rv2.setLayoutManager(linearLayoutManager2);
                 rv3.setLayoutManager(linearLayoutManager3);
                 rv1.setAdapter(FilmeAdapter);
-                rv2.setAdapter(FilmeAdapter);
-                rv3.setAdapter(FilmeAdapter);
+                rv2.setAdapter(FilmeAdapter1);
+                rv3.setAdapter(FilmeAdapter2);
         }
         private void obtemFilmes(){
                 ApiService.getInstance()
-                        .FilmesPoulares("799a1f0649735842ab24e00e80ad2b30")
+                        .FilmesPoulares("799a1f0649735842ab24e00e80ad2b30", "pt-BR")
                         .enqueue(new Callback<FilmesResult>() {
                                 @Override
                                 public void onResponse(@NotNull Call<FilmesResult> call, @NotNull Response<FilmesResult> response) {
                                         if(response.isSuccessful()){
                                                 final List<Filme> listaFilmes = FilmeMapper
                                                         .responseToDomain(response.body().getResultados());
-
+                                                FilmeAdapter1.setFilmes(listaFilmes);
+                                                FilmeAdapter2.setFilmes(listaFilmes);
                                                 FilmeAdapter.setFilmes(listaFilmes);
+
                                                 configuraAdapter();
                                         }
                                         else{

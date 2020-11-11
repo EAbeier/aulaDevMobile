@@ -139,6 +139,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+
+    //mudar para presenter
     public void verificaDados(View view){
         EditText email = (EditText)findViewById(R.id.inEmail);
         EditText pass = (EditText)findViewById(R.id.inPass);

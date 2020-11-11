@@ -6,7 +6,9 @@ package com.example.meuapp;
         import android.os.Bundle;
         import android.os.Handler;
         import android.view.WindowManager;
+        import android.widget.TextView;
 
+        import com.example.meuapp.data.model.Filme;
         import com.example.meuapp.ui.ListaFilmesActivity;
 
 public class FilmeInfo extends AppCompatActivity {
@@ -28,6 +30,11 @@ public class FilmeInfo extends AppCompatActivity {
                 finish();
             }
         },5000);
+
+
+    }
+    public void setFilme(Filme filme){
+        ((TextView)findViewById(R.id.id_nomefilme)).setText(filme.getTitulo());
     }
 
 }
