@@ -6,6 +6,7 @@ package com.example.meuapp;
         import android.os.Bundle;
         import android.os.Handler;
         import android.view.WindowManager;
+        import android.widget.ImageView;
         import android.widget.TextView;
 
         import com.example.meuapp.data.model.Filme;
@@ -35,6 +36,7 @@ public class FilmeInfo extends AppCompatActivity {
     }
     public void setFilme(Filme filme){
         ((TextView)findViewById(R.id.id_nomefilme)).setText(filme.getTitulo());
+        //((ImageView).findViewById(R.id.poster_filme_info).setImage(filme.getPoster());
     }
 
 }

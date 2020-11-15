@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingComponent;
@@ -58,11 +59,12 @@ public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.
 
         }
         public void bind(Filme filme){
-            filme.setTitulo(filme.getTitulo());
+            binding.txtTituloFilme.setText(filme.getTitulo());
             ImageView poster = this.binding.getRoot().findViewById(R.id.poster_filme);
             Picasso.get().load("https://image.tmdb.org/t/p/w500/"+filme.getCaminhoPoster())
                     .into(poster);
         }
+
     }
 
 

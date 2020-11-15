@@ -5,10 +5,19 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.meuapp.R;
@@ -19,6 +28,8 @@ import com.example.meuapp.data.model.Filme;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,18 +53,6 @@ protected void onCreate(Bundle savedInstanceState) {
 
         obtemFilmes();
 
-
-
-
-
-
-
-
-        /*List<Filme> movieList = new ArrayList<>();
-        movieList.add(new Filme("EndGame", "Aveneger endgame is awesome movie"));
-        movieList.add(new Filme("Infinity wars", "Aveneger infinity wars is super awesome movie"));*/
-
-
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         }
@@ -62,9 +61,6 @@ protected void onCreate(Bundle savedInstanceState) {
                 startActivity(new Intent(getBaseContext(),ListaFilmesActivity.class));
         }
 
-    /*public void botaoClick(View view){
-        Intent intent = new Intent( createPackageContext: this, activity_lista_filmes.class);
-    }*/
         public void configuraAdapter(){
             RecyclerView rv1 = findViewById(R.id.rv_drama);
             RecyclerView rv2 = findViewById(R.id.rv_recomenda);
@@ -109,4 +105,33 @@ protected void onCreate(Bundle savedInstanceState) {
                 Toast.makeText(this, "Falha na comunicaçao da api", Toast.LENGTH_SHORT)
                         .show();
         }
+
+    public void Share(View view) {
+        String mensagem = "Se liga nessa feature com.example.meuapp.ui.listafilmes";
+        enviarWhatsApp(mensagem);
+
+       
+
+
+    }
+    public void enviarWhatsApp(String mensagem) {
+        PackageManager pm=getPackageManager();
+        try {
+
+            Intent waIntent = new Intent(Intent.ACTION_SEND);
+            waIntent.setType("text/plain");
+            String text = mensagem;
+
+            PackageInfo info=pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+            waIntent.setPackage("com.whatsapp");
+
+            waIntent.putExtra(Intent.EXTRA_TEXT, text);
+            startActivity(waIntent);
+
+        } catch (PackageManager.NameNotFoundException e) {
+            Toast.makeText(this, "WhatsApp não instalado", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
+
+
