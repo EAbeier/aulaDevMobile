@@ -20,6 +20,14 @@
             android:layout_height="300dp">
 
 
+
+            <TextView
+                android:id="@+id/txt_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:text="@{filme.idFilme}" />
+
             <ImageView
                 android:id="@+id/poster_filme"
                 android:layout_width="wrap_content"

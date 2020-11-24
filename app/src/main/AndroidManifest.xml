@@ -31,18 +31,18 @@
         </activity>
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.perfilActivity" />
-        <activity android:name=".ui.ListaFilmesActivity">
+        <activity android:name=".ui.ListaFilmesActivity"/>
+        <activity android:name=".ui.FilmeInfo">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:scheme="http"
-                    android:host="com.example.meuapp.ui"
-                    android:path="/listafilmes" />
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:host="filmes.uniritter.edu.br" android:path="/filme" android:scheme="http" />
             </intent-filter>
         </activity>
+
+
+
 
 
         <meta-data

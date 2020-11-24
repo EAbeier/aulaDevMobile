@@ -10,9 +10,12 @@ public class FilmeMapper {
 
     public static List<Filme> responseToDomain(List<FilmeResponse> listaFilmeResponse){
          List<Filme> listaFilmes= new ArrayList<>();
+
          for(FilmeResponse filmeResponse : listaFilmeResponse){
-            final Filme filme = new Filme(filmeResponse.getTituloFilme(), filmeResponse.getCaminhoPoster());
-            listaFilmes.add(filme);
+
+                final Filme filme = new Filme(filmeResponse.getTituloFilme(), filmeResponse.getCaminhoPoster(), filmeResponse.getIdFilme());
+                listaFilmes.add(filme);
+
          }
          return listaFilmes;
     }

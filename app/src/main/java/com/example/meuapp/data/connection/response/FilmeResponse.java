@@ -9,10 +9,13 @@ public class FilmeResponse {
 
     @Json(name = "title")
     private final String tituloFilme;
+    @Json(name="id")
+    private final String idFilme;
 
-    public FilmeResponse(String caminhoPoster, String tituloFilme) {
+    public FilmeResponse(String caminhoPoster, String tituloFilme, String idFilme) {
         this.caminhoPoster = caminhoPoster;
         this.tituloFilme = tituloFilme;
+        this.idFilme = idFilme;
     }
 
     public String getCaminhoPoster() {
@@ -22,4 +25,5 @@ public class FilmeResponse {
     public String getTituloFilme() {
         return tituloFilme;
     }
+    public String getIdFilme(){return idFilme;}
 }

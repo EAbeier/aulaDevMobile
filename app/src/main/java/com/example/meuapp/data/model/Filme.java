@@ -9,9 +9,20 @@ public class Filme {
     private String titulo;
     private String caminhoPoster;
     private ImageView poster;
-    public Filme(String titulo, String caminhoPoster) {
+
+    public String getIdFilme() {
+        return idFilme;
+    }
+
+    public void setIdFilme(String idFilme) {
+        this.idFilme = idFilme;
+    }
+
+    private String idFilme;
+    public Filme(String titulo, String caminhoPoster, String idFilme) {
         this.titulo = titulo;
         this.caminhoPoster = caminhoPoster;
+        this.idFilme = idFilme;
     }
 
     public String getTitulo() {
