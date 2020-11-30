@@ -13,7 +13,7 @@ public class FilmeMapper {
 
          for(FilmeResponse filmeResponse : listaFilmeResponse){
 
-                final Filme filme = new Filme(filmeResponse.getTituloFilme(), filmeResponse.getCaminhoPoster(), filmeResponse.getIdFilme());
+                final Filme filme = new Filme(filmeResponse.getTituloFilme(), filmeResponse.getCaminhoPoster(), filmeResponse.getIdFilme(), filmeResponse.getDescricao());
                 listaFilmes.add(filme);
 
          }

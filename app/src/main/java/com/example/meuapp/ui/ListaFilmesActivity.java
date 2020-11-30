@@ -184,6 +184,10 @@ public class ListaFilmesActivity extends AppCompatActivity {
             Toast.makeText(this, "WhatsApp não instalado", Toast.LENGTH_SHORT).show();
         }
     }
+    public void InformacaoFilme(){
+        startActivity(new Intent(getBaseContext(), FilmeInfo.class));
+        finish();
+    }
 }
 
 

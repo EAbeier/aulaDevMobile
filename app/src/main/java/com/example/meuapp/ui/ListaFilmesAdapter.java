@@ -73,4 +73,6 @@ public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.
         this.filmes = filmes;
         notifyDataSetChanged();
     }
+
+
 }

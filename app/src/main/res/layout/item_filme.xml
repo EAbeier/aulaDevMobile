@@ -30,6 +30,9 @@
 
             <ImageView
                 android:id="@+id/poster_filme"
+                android:clickable="true"
+                android:linksClickable="true"
+                android:onClick="InformacaoFilme"
                 android:layout_width="wrap_content"
                 android:layout_height="220dp"
                 android:scaleType="fitXY"

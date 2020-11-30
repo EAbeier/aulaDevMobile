@@ -158,6 +158,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void cadastra(View view){
-        startActivity(new Intent(getBaseContext(),SignInButton.class));
+        startActivity(new Intent(getBaseContext(),SignInActivity.class));
     }
 }

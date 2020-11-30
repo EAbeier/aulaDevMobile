@@ -46,7 +46,7 @@ public class FilmeInfo extends AppCompatActivity {
 
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Conecta();
+        //Conecta();
 
 
         new Handler().postDelayed(new Runnable(){
@@ -66,7 +66,8 @@ public class FilmeInfo extends AppCompatActivity {
         ImageView poster = findViewById(R.id.poster_filme_info);
         Picasso.get().load("https://image.tmdb.org/t/p/w500/"+filme.getCaminhoPoster())
                 .into(poster);
-
+        String descricao = filme.getTitulo();
+        ((TextView)findViewById(R.id.descricao_filme)).setText(descricao);
     }
 
     private void mostraErro(){

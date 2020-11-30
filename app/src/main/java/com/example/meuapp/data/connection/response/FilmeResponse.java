@@ -12,10 +12,15 @@ public class FilmeResponse {
     @Json(name="id")
     private final String idFilme;
 
-    public FilmeResponse(String caminhoPoster, String tituloFilme, String idFilme) {
+
+    @Json(name="description")
+    private final String descricao;
+
+    public FilmeResponse(String caminhoPoster, String tituloFilme, String idFilme, String descricao) {
         this.caminhoPoster = caminhoPoster;
         this.tituloFilme = tituloFilme;
         this.idFilme = idFilme;
+        this.descricao = descricao;
     }
 
     public String getCaminhoPoster() {
@@ -26,4 +31,8 @@ public class FilmeResponse {
         return tituloFilme;
     }
     public String getIdFilme(){return idFilme;}
+    public String getDescricao() {
+        return descricao;
+    }
+
 }

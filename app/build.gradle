@@ -48,8 +48,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.3'
+    def appcompat_version = "1.2.0"
+
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    // For loading and tinting drawables on older versions of the platform
+    implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
@@ -59,8 +63,8 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'com.google.firebase:firebase-database:19.5.1'
-    implementation 'com.google.firebase:firebase-auth:20.0.0'
-    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
     implementation 'com.google.gms:google-services:4.3.4'
     implementation 'com.google.firebase:firebase-core:18.0.0'
     implementation platform('com.google.firebase:firebase-bom:26.0.0')
@@ -75,6 +79,11 @@ dependencies {
     implementation 'nl.littlerobots.cupboard-tools:moshi:0.3.1'
     implementation fileTree(dir: 'D:\\Faculdade\\aulaDevMobile\\.idea\\libraries', include: ['*.aar', '*.jar'], exclude: [])
     testImplementation 'junit:junit:4.13.1'
+    implementation platform('com.google.firebase:firebase-bom:26.0.0')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+
+
 
 
 }
