@@ -44,10 +44,10 @@ public class SignInActivity extends AppCompatActivity {
         mLoginLink = findViewById(R.id.tv_ja_cadastrado);
         progressBar = findViewById(R.id.progress_bar_registrar);
 
-        if(mAuth.getCurrentUser()!=null){
+        /*if(mAuth.getCurrentUser()!=null){
             startActivity(new Intent(getApplicationContext(),ListaFilmesActivity.class));
             finish();
-        }
+        }*/
 
 
         mResgitroBtn.setOnClickListener(new View.OnClickListener() {
