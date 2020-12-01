@@ -21,9 +21,12 @@ import java.util.List;
 
 public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.FilmeViewHolder>{
     private List<Filme> filmes;
+    private static ItemFilmeClickListener itemFilmeClickListener;
 
 
-    public ListaFilmesAdapter() {
+    public ListaFilmesAdapter(ItemFilmeClickListener itemFilmeClickListener) {
+        this.itemFilmeClickListener = itemFilmeClickListener;
+
         this.filmes = new ArrayList<>();
     }
 
@@ -52,13 +55,22 @@ public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.
         //private  ImageView poster;
         /*private  TextView txtTituloFilme;*/
         private ItemFilmeBinding binding;
-
+        private Filme filme;
         public FilmeViewHolder(ItemFilmeBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(itemFilmeClickListener != null){
+                        itemFilmeClickListener.onItemFilmeClicado(filme);
+                    }
+                }
+            });
 
         }
         public void bind(Filme filme){
+            this.filme = filme;
             binding.txtTituloFilme.setText(filme.getTitulo());
             binding.txtId.setText(filme.getIdFilme());
             ImageView poster = this.binding.getRoot().findViewById(R.id.poster_filme);
@@ -74,5 +86,8 @@ public class ListaFilmesAdapter extends RecyclerView.Adapter<ListaFilmesAdapter.
         notifyDataSetChanged();
     }
 
+    public interface ItemFilmeClickListener{
+        void onItemFilmeClicado(Filme filme);
+    }
 
 }

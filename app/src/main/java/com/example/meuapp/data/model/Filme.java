@@ -5,7 +5,9 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-public class Filme {
+import java.io.Serializable;
+
+public class Filme implements Serializable {
     private String titulo;
     private String caminhoPoster;
     private ImageView poster;

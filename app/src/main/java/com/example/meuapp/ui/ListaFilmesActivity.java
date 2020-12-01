@@ -6,15 +6,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -39,10 +45,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListaFilmesActivity extends AppCompatActivity {
-    private ListaFilmesAdapter FilmeAdapter1 = new ListaFilmesAdapter();
-    private ListaFilmesAdapter FilmeAdapter2 = new ListaFilmesAdapter();
-    private ListaFilmesAdapter FilmeAdapter3 = new ListaFilmesAdapter();
+public class ListaFilmesActivity extends AppCompatActivity implements SensorEventListener,
+        ListaFilmesAdapter.ItemFilmeClickListener {
+    SensorManager sensorManager;
+    Sensor sensor;
+    long TempoEvento;
+    private ListaFilmesAdapter FilmeAdapter1 = new ListaFilmesAdapter(this);
+    private ListaFilmesAdapter FilmeAdapter2 = new ListaFilmesAdapter(this);
+    private ListaFilmesAdapter FilmeAdapter3 = new ListaFilmesAdapter(this);
+    RecyclerView rv1;
+    RecyclerView rv2;
+    RecyclerView rv3;
 
 
     @Override
@@ -56,6 +69,22 @@ public class ListaFilmesActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        if(sensor == null){
+            Log.e("Sensor","Sensor nao encontrado!" );
+        }
+    }
+    @Override
+    protected  void onResume(){
+        super.onResume();
+        sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        sensorManager.unregisterListener(this);
     }
 
     public void retorna(View view) {
@@ -63,9 +92,10 @@ public class ListaFilmesActivity extends AppCompatActivity {
     }
 
     public void configuraAdapter() {
-        RecyclerView rv1 = findViewById(R.id.rv_populares);
-        RecyclerView rv2 = findViewById(R.id.rv_reproduzindo);
-        RecyclerView rv3 = findViewById(R.id.rv_bem_avaliados);
+        rv1 = findViewById(R.id.rv_populares);
+        rv2 = findViewById(R.id.rv_reproduzindo);
+        rv3 = findViewById(R.id.rv_bem_avaliados);
+
         RecyclerView.LayoutManager linearLayoutManager1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView.LayoutManager linearLayoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         RecyclerView.LayoutManager linearLayoutManager3 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -184,9 +214,62 @@ public class ListaFilmesActivity extends AppCompatActivity {
             Toast.makeText(this, "WhatsApp não instalado", Toast.LENGTH_SHORT).show();
         }
     }
-    public void InformacaoFilme(){
-        startActivity(new Intent(getBaseContext(), FilmeInfo.class));
-        finish();
+
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+            if(event.sensor == sensor && event.timestamp - TempoEvento>2000){
+                String d = "";
+                float x,y,z;
+                x= event.values[0];
+                y= event.values[1];
+                z= event.values[2];
+                for(float f : event.values){
+                    d+=f+", ";
+                }
+                if(y>2){
+                    Log.d("Sensor1", d);
+                    rv1.scrollBy(300,0);
+                }
+                    if(y<2 && y!=0){
+                        if(rv1 != null){
+
+                            Log.d("Sensor2", d);
+                            rv1.scrollBy(-300,0);
+                        }
+                    }
+
+
+
+                if(z>2){
+
+                    Log.d("Sensor3", d);
+                    rv2.scrollBy(300,0);
+                }
+
+                    if(z<2 && z!=0){
+                            if(rv2!=null){
+                            Log.d("Sensor4", d);
+                            rv2.scrollBy(-300,0);
+
+                            }
+                    }
+
+
+
+            }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }
+
+    @Override
+    public void onItemFilmeClicado(Filme filme) {
+        Intent intent = new Intent(this, FilmeInfo.class);
+        intent.putExtra(FilmeInfo.EXTRA_FILME, filme);
+        startActivity(intent);
     }
 }
 

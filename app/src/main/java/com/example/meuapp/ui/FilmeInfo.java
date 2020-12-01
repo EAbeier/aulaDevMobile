@@ -34,7 +34,7 @@ package com.example.meuapp.ui;
         import retrofit2.Response;
 
 public class FilmeInfo extends AppCompatActivity {
-
+    public static  final String EXTRA_FILME = "EXTRA_FILME";
 
 
     @Override
@@ -47,6 +47,17 @@ public class FilmeInfo extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //Conecta();
+        final Filme filme = (Filme) getIntent().getSerializableExtra(EXTRA_FILME);
+        TextView txtTitulo = findViewById(R.id.id_nomefilme);
+        TextView txtDesc = findViewById(R.id.descricao_filme);
+        ImageView imgFilme = findViewById(R.id.poster_filme_info);
+        String caminhoPoster;
+        caminhoPoster = filme.getCaminhoPoster();
+        txtTitulo.setText(filme.getTitulo());
+        txtDesc.setText(filme.getDescricao());
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/"+filme.getCaminhoPoster())
+                .into(imgFilme);
+
 
 
         new Handler().postDelayed(new Runnable(){
@@ -59,66 +70,8 @@ public class FilmeInfo extends AppCompatActivity {
 
 
     }
-    public void setFilme(Filme filme){
-
-        String titulo = filme.getTitulo();
-        ((TextView)findViewById(R.id.id_nomefilme)).setText(titulo);
-        ImageView poster = findViewById(R.id.poster_filme_info);
-        Picasso.get().load("https://image.tmdb.org/t/p/w500/"+filme.getCaminhoPoster())
-                .into(poster);
-        String descricao = filme.getTitulo();
-        ((TextView)findViewById(R.id.descricao_filme)).setText(descricao);
-    }
-
-    private void mostraErro(){
-        Toast.makeText(this, "Falha na comunicaçao da api", Toast.LENGTH_SHORT)
-                .show();
-    }
-    private void Conecta(){
-        int idFilme = 0;
-        Intent intent = getIntent();
-        if(Intent.ACTION_VIEW.contains(intent.getAction())){
-            Uri uri = intent.getData();
-            String id = uri.getQueryParameter("id");
-            idFilme = Integer.parseInt(id);
-        }else{
-            if(intent.getType().equals("aplication/json")){
-                try{
-                    JSONObject json = new JSONObject(intent.getExtras().getString("json"));
-                    idFilme = json.getInt("id");
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }else{
-                idFilme = this.getIntent().getIntExtra("idFilme", 497582);
-
-            }
-        }
-        Conectaapi(idFilme);
-    }
-    private void Conectaapi(int idFilme) {
-        String idstring = Integer.toString(idFilme);
-        ApiService.getInstance()
-                .Filme(idstring, "799a1f0649735842ab24e00e80ad2b30", "pt-BR")
-                .enqueue(new Callback<FilmesResult>() {
-                    @Override
-                    public void onResponse(@NotNull Call<FilmesResult> call, @NotNull Response<FilmesResult> response) {
-                        if (response.isSuccessful()) {
-                            final List<Filme> listaFilmes = FilmeMapper
-                                    .responseToDomain(response.body().getResultados());
-                            Filme filme = listaFilmes.get(0);
-                            setFilme(filme);
 
 
-                        } else {
-                            mostraErro();
-                        }
-                    }
 
-                    @Override
-                    public void onFailure(@NotNull Call<FilmesResult> call, Throwable t) {
-                        mostraErro();
-                    }
-                });
-    }
+
 }
